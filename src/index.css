@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: "Pixelify Sans", serif;
+
+}
+.open-sans{
+  font-family: "Open Sans", sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+.image-size{
+  width: 20%;
+  height: auto;
+}
+.PerfiosWidth{
+  height:15rem;
+  width: 25rem;
+  object-fit: cover;
+}
+.perfbanner{
+  
+}
+.back-gradient{
+  /* background-image: linear-gradient(to right, #000039, #001656, #052674, #0c3795, #0e4ab7, #0e4ab7, #0e4ab7, #0e4ab7, #0c3795, #052674, #001656, #000039); */
+  background-color: aliceblue;
+  color: black;
+  border-width:2px;
+  border-style: solid;
+  border-radius:10px;
+  /* border-image: linear-gradient(to right, darkblue, white) 1; */
+
+}
+.glassmorphism{
+  background: rgba( 255, 255, 255, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+/* .slide{
+  height:200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+.slider::before,
+.slider::after{
+  background: linear-gradient(to right ,rgba(1,1,1,1)0%,rgba(1,1,1,0)100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+.slider::before{
+  left:0;
+  top:0;
+} */
+/* .slider::after{
+  right: 0;
+  top: 0;
+  transform:rotateZ(180deg);
+} */
+/* .hove{
+  transition: transform 1s;
+}
+.hove:hover{
+  transform:translateZ(20px);
+  cursor: pointer;
+} */
+ .gradient{
+  background: rgb(0,1,9);
+  background: linear-gradient(61deg, rgba(0,1,9,0) 0%, rgba(0,0,18,1) 0%, rgba(0,0,0,1) 14%, rgba(52,127,227,1) 50%, rgba(0,40,102,1) 71%, rgba(0,0,57,1) 91%, rgba(218,219,219,1) 100%, rgba(12,26,54,1) 100%);
+ }
+ .gradient-image{
+  background-image: url(../src/assets/Gradient\ Button.png);
+  background-size: cover;
+  
+ }
+ @media screen and (max-width: 700px) {
+  .gradient-image {
+    background-image: url(../src/assets/gradient2.png);
+  }
+}
+
+ .glass-border{
+  background:linear-gradient(90deg, #ffffff 0%, rgba(167,166,166,0.89) 55%, rgba(147,147,147,0.94) 66%, #070707 87%);
+border-radius: 8px;
+padding: 0.35px; 
+box-sizing: border-box;
+ }
+ .slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  width: fit-content;
+  will-change: transform;
+}
+
+@keyframes slideAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slider-animate {
+  animation: slideAnimation 25s linear infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.slider-container:hover .slider-animate {
+  animation-play-state: paused;
+}
+
+/* Pointer events fix to ensure hover messages work correctly */
+.slider-container .group {
+  z-index: 10;
+}
+
+/* Adjust animation speed for different screen sizes */
+@media (max-width: 640px) {
+  .slider-animate {
+    animation-duration: 15s;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .slider-animate {
+    animation-duration: 20s;
+  }
+}
+
+@media (min-width: 1025px) {
+  .slider-animate {
+    animation-duration: 25s;
+  }
+}
+
+/* Fix for touch devices */
+@media (hover: none) {
+  .slider-container:active .slider-animate {
+    animation-play-state: paused;
+  }
+  
+  /* For touch devices, show message on tap instead of hover */
+  .slider-container .group:active .opacity-0 {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+.contact-collage{
+  background-image: url(../src/assets/Contact\ Page\ Collage.png);
+  background-size: cover;
+  opacity: 100%;
+  
+}
+.about-gff{
+  background-image: url(../src/assets/Contact\ Page\ Collage.png);
+  background-size: contain;
+}
+/* Additional fix for Safari glitching */
+img {
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}

@@ -1,0 +1,69 @@
+1. Navbar solution
+2. Work strip darknes (light to  dark)(to do)
+3. Perfios section heading(to do)
+4.Call to action button(to do)
+5. scroll to top(to do)
+6. Showreel(to do)
+
+7. font-seggregation
+8. larger screen changes (24inch)
+9. video behind strip opacity change
+10.asterik
+11.section separator
+12.google sheet error
+13.icons update 
+14.copyright icon closer
+15. Footer (to do)
+16. connect with me diverts to contact page
+17.More work responsive
+18.Vignette layer on video
+19.Center align video showcase(to do)
+20. glass phase(to do)
+
+
+
+Shiwang
+
+1. Animate tiles 
+2. More Work
+3. Visual stages bitdefender
+
+
+
+
+1. border glassmorphism
+2.showreel left and top alignment
+3
+
+
+1. floating icon 
+2. tile creation 
+3. Get in touch -contact page
+4. responsive -xl responsiveness
+5. write name below logo
+6. change perfios strip
+7. work showcase strip
+8.glassmorphism
+9.scroll to top
+10. contact icons and link
+11.study gradient image
+12.About section grid and content
+13.Motion power content
+14.REmove ideation to inspiration and ideation
+sub heading icon ideation
+
+
+15. remove thoughtprocess
+16 contact section collage
+17. Add bitdefender script(dropdown arrow)
+18.REplace storyboard
+19. Visual stages replace inspiration
+20.disclaimer that the first 5 seconds belong to bitdefender
+21.bidefender summary
+22.color ideation
+23.remove user journey
+24 perfios look development to be added first
+25 services image hover description
+
+
+1. decrease spacing between logo and  name

@@ -1,0 +1,40 @@
+1.showcase thumnail and preview reel
+2.glassmorphism border
+3.icon scroll to top
+4.contact icons + link( linkedin ,instagram,behance,x)
+5.gradient image(rectangle )
+6.Testimonials 
+7.About section 
+8.services images 
+9.Motion Power written content
+10.video creation process written content
+11. Contact Section Collage
+
+1. floating icon 
+2. tile creation 
+3. Get in touch -contact page
+4. responsive -xl responsiveness
+5. write name below logo
+6. change perfios strip
+7. work showcase strip
+8.glassmorphism
+9.scroll to top
+10. contact icons and link
+11.study gradient image
+12.About section grid and content
+13.Motion power content
+14.REmove ideation to inspiration and ideation
+sub heading icon ideation
+
+
+15. remove thoughtprocess
+16 contact section collage
+17. Add bitdefender script(dropdown arrow)
+18.REplace storyboard
+19. Visual stages replace inspiration
+20.disclaimer that the first 5 seconds belong to bitdefender
+21.bidefender summary
+22.color ideation
+23.remove user journey
+24 perfios look development to be added first
+25 services image hover description
