@@ -47,7 +47,7 @@ const SampleWork = () => {
           <h5 className='text-white text-3xl bolder'>Bitdefender Secure Paas</h5>
           <div className='text-white w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-125 rounded-md open-sans'>
           <p>Disclaimer:
-Timestamp 00:00->00:06 is made by Bitdefender and the rest of the video is sample work created by me.
+Timestamp 00:00-00:06 is made by Bitdefender and the rest of the video is sample work created by me.
 </p><br/>
           Bitdefender SecurePass is a password manager that lets you create, save, manage, and share passwords securely with end-to-end encryption. Available on browsers and mobile, it generates strong passwords, stores them in an encrypted vault, and organizes credentials with ease. Share securely with expiration dates and protected links, enhance safety with two-factor authentication, and import passwords seamlessly.</div>
 
@@ -77,7 +77,6 @@ Timestamp 00:00->00:06 is made by Bitdefender and the rest of the video is sampl
             
             {isScriptOpen && (
               <div className="p-4 bg-gray-900">
-                {/* Structure Section */}
                 <div className="mb-8 open-sans">
                   <h2 className="text-xl font-semibold mb-3">Structure</h2>
                   <ul className="list-disc pl-5 space-y-1">

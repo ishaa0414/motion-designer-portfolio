@@ -1,7 +1,7 @@
 import React, {useRef, useState } from "react";
 import { X, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.png";
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
   <>
     <nav className="z-50 pr-5 pl-5 fixed top-0 left-0 w-full bg-zinc-500 bg-opacity-10 backdrop-blur-sm backdrop-contrast-125 flex justify-between items-center  text-white  ">
-          {/* Logo */}
+        
           <Link to="/">
             <img src={logo} className="w-16 cursor-pointer" alt="Logo" />
           </Link>

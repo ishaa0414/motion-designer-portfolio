@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LuInstagram, LuLinkedin, LuTwitter } from "react-icons/lu";
+
 import Navbar from "../Navbar/Navbar";
 
 import Behance from '../../assets/icons/Be Icon.png';
