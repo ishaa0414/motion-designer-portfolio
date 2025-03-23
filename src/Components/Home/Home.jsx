@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import About from "../About/About";
 import Contact from "../Contact/Contact";
 import Showreel from "../../assets/Showreel (New).mp4";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.png";
 import Showcase from "../Showcase/Showcase";
 import MotionPower from "../MotionPower/MotionPower";
 import ContactHome from "../ContactHome/ContactHome";
