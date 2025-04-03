@@ -81,7 +81,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 } */
  .gradient{
   background: rgb(0,1,9);
-  background: linear-gradient(61deg, rgba(0,1,9,0) 0%, rgba(0,0,18,1) 0%, rgba(0,0,0,1) 14%, rgba(52,127,227,1) 50%, rgba(0,40,102,1) 71%, rgba(0,0,57,1) 91%, rgba(218,219,219,1) 100%, rgba(12,26,54,1) 100%);
+  background: linear-gradient(90deg, rgba(0,1,9,0) 0%, rgba(52,127,227,1) 0%, rgba(0,0,0,1) 0%, rgba(0,40,102,1) 49%, rgba(0,0,57,1) 97%, rgba(121,122,147,1) 99%, rgba(218,219,219,1) 100%, rgba(12,26,54,1) 100%);
  }
  .gradient-image{
   background-image: url(../src/assets/Gradient\ Button.png);

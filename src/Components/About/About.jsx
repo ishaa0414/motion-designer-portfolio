@@ -13,7 +13,7 @@ const About = () => {
     <div className="text-white px-3 max-w-6xl mx-auto">
       {/* Header */}
       <div className="glass-border mb-4">
-        <p className="text-white gradient-image p-3 text-2xl sm:text-xl md:text-3xl lg:text-3xl xl:text-4xl">
+        <p className="text-white gradient p-3 text-2xl sm:text-xl md:text-3xl lg:text-3xl xl:text-4xl">
           About
         </p>
       </div>
@@ -34,7 +34,7 @@ const About = () => {
               When I'm not designing, I admire music videos for their ability to seamlessly blend visuals and sound, geek out over anime, and sharpen my Valorant skills—because creativity thrives on a mix of inspiration, passion, and fun!
             </p>
           </div>
-          <div className="text-white gradient-image p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Achievement I am Proud Of
           </div>
         </div>
@@ -55,7 +55,7 @@ const About = () => {
               Let's work together to bring your vision to life and make your brand unforgettable.
             </p>
           </div>
-          <div className="text-white gradient-image p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Get in Touch
           </div>
           <div className="text-white gradient-image p-3 rounded-sm text-center">

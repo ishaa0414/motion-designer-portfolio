@@ -52,8 +52,8 @@ const Home = () => {
         {/* Navigation Links */}
         <ul className={`md:flex gap-6 text-center font-semibold bg-zinc-500 bg-opacity-100 text-white font-sans md:bg-transparent transition-all duration-300 text-lg
           ${mobileMenuOpen ? "block absolute top-10 rounded-lg text-gray-800 text-lg right-0 w-1/3 bg-[#919191e0] p-4" : "hidden"} md:block`}>
-          <li className="cursor-pointer p-2 hover:text-gray-300" onClick={() => navigateTo('/work')}>Work</li>
-          <li className="cursor-pointer p-2 hover:text-gray-300 gradient rounded-md" onClick={() => navigateTo('/contact')}>Get In Touch</li>
+          <li className="cursor-pointer p-2 hover:text-gray-300" onClick={() => navigateTo('/show-work')}>Work</li>
+          <li className="cursor-pointer p-2 hover:text-gray-300 gradient rounded-md " onClick={() => navigateTo('/contact')}>Get In Touch</li>
         </ul>
       </nav>
 

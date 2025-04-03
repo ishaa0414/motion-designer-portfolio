@@ -25,26 +25,27 @@ const Navbar = () => {
 
   return (
   <>
-    <nav className="z-50 pr-5 pl-5 fixed top-0 left-0 w-full bg-zinc-500 bg-opacity-10 backdrop-blur-sm backdrop-contrast-125 flex justify-between items-center  text-white  ">
-        
-          <Link to="/">
-            <img src={logo} className="w-16 cursor-pointer" alt="Logo" />
-          </Link>
-  
-          {/* Mobile Menu Button */}
-          <button className="md:hidden focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 mr-5 z-50" />}
-          </button>
-  
-          {/* Navigation Links */}
-          <ul className={`md:flex gap-6 text-center font-semibold bg-zinc-500 bg-opacity-100 text-white font-sans md:bg-transparent transition-all duration-300 
-            ${mobileMenuOpen ? "block absolute top-10 rounded-lg text-gray-800 text-lg right-0 w-1/3 bg-[#919191e0] p-4" : "hidden"} md:block`}>
-            <li className="cursor-pointer p-2 hover:text-gray-300" onClick={() => navigateTo('/work')}>Work</li>
-            
-            
-            <li className="cursor-pointer p-2 hover:text-gray-300" onClick={() => navigateTo('/contact')}>Get in Touch</li>
-          </ul>
-        </nav>
+       <nav className="pr-5 pl-5 fixed top-0 left-0 w-full bg-zinc-500 bg-opacity-10 backdrop-blur-sm backdrop-contrast-125 flex justify-between items-center z-50 text-white open-sans">
+        {/* Logo */}
+        <Link to="/">
+          <div className="flex flex-col justify-center items-center">
+            <img src={logo} className="w-16 cursor-pointer text-center" alt="Logo" />
+            <div className="text-center pl-2">Shiwang Nath</div>
+          </div>
+        </Link>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 mr-5" />}
+        </button>
+
+        {/* Navigation Links */}
+        <ul className={`md:flex gap-6 text-center font-semibold bg-zinc-500 bg-opacity-100 text-white font-sans md:bg-transparent transition-all duration-300 text-lg
+          ${mobileMenuOpen ? "block absolute top-10 rounded-lg text-gray-800 text-lg right-0 w-1/3 bg-[#919191e0] p-4" : "hidden"} md:block`}>
+          <li className="cursor-pointer p-2 hover:text-gray-300" onClick={() => navigateTo('/show-work')}>Work</li>
+          <li className="cursor-pointer p-2 hover:text-gray-300 gradient rounded-md" onClick={() => navigateTo('/contact')}>Get In Touch</li>
+        </ul>
+      </nav>
   
   </>
   );
