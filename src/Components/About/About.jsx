@@ -1,5 +1,6 @@
 import React from 'react';
-import myPicture from '../../assets/my-pic.png';
+import { Link, useNavigate } from 'react-router-dom';
+import myPicture from '../../assets/Me 2.JPG';
 import Gradient from '../../assets/Gradient Button.png';
 import GFF from '../../assets/About GFF.jpg';
 
@@ -7,6 +8,16 @@ const About = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText('shiwang.work@gmail.com');
     alert('Email copied to clipboard!');
+  };
+  
+  const navigate = useNavigate();
+  
+  // Custom navigation function that handles scrolling
+  const navigateToPerfios = (e) => {
+    e.preventDefault();
+    navigate('/perfios-show/10');
+    // Reset scroll position to top
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -20,7 +31,7 @@ const About = () => {
 
       {/* Introduction */}
       <div className="mt-2 p-4 rounded-sm bg-zinc-300 bg-opacity-10 backdrop-blur-lg backdrop-contrast-125 mb-6">
-        <p className="text-base sm:text-sm md:text-base lg:text-lg xl:text-xl text-center sm:text-left leading-relaxed open-sans">
+        <p className=" text-base sm:text-sm md:text-base lg:text-lg xl:text-xl text-center sm:text-left leading-relaxed open-sans">
           <strong>Hi, I'm Shiwang!</strong> I help SaaS brands achieve their marketing goals with high-quality, engaging videos that simplify complex ideas—without the hassle of technical complexities or endless revisions. Using visual storytelling with 2D/3D animation, I craft content that strengthens brand identity and drives leads.
         </p>
       </div>
@@ -34,7 +45,7 @@ const About = () => {
               When I'm not designing, I admire music videos for their ability to seamlessly blend visuals and sound, geek out over anime, and sharpen my Valorant skills—because creativity thrives on a mix of inspiration, passion, and fun!
             </p>
           </div>
-          <div className="text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="border text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Achievement I am Proud Of
           </div>
         </div>
@@ -55,10 +66,10 @@ const About = () => {
               Let's work together to bring your vision to life and make your brand unforgettable.
             </p>
           </div>
-          <div className="text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="text-white border gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Get in Touch
           </div>
-          <div className="text-white gradient-image p-3 rounded-sm text-center">
+          <div className="border text-white gradient-image p-3 rounded-sm text-center">
             <p className="text-lg md:text-xl lg:text-2xl">shiwang.work@gmail.com</p>
             <hr className="my-2" />
             <button 
@@ -78,7 +89,11 @@ const About = () => {
           <p className="text-base sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed open-sans">
             I had the honor of having my work featured at the Global Fintech Fest, attended by PM Narendra Modi and Mr. Piyush Goyal, contributing to Perfios's success.
             <br /><br />
-            Being part of "The Era of 0" by Perfios was an exciting challenge—visualizing the fight against fraud and banking mishaps. Grateful to Perfios for this opportunity and support.
+            Being part of <a 
+              href="/perfios-show/10" 
+              onClick={navigateToPerfios}
+              className="text-blue-400 hover:text-blue-300 underline cursor-pointer"
+            >"The Era of 0"</a> by Perfios was an exciting challenge—visualizing the fight against fraud and banking mishaps. Grateful to Perfios for this opportunity and support.
             <br /><br />
             This experience reinforced my passion for motion design in brand storytelling. Let's connect and create something impactful!
           </p>

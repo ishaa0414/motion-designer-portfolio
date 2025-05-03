@@ -31,14 +31,14 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex items-center gap-4">
-          <a 
+          {/* <a 
             href={socialLinks.behance} 
             target="_blank" 
             rel="noopener noreferrer"
             className="transition-transform hover:scale-110"
           >
             <img src={Behance} className="w-7" alt="Behance" />
-          </a>
+          </a> */}
 
           <a 
             href={socialLinks.instagram} 

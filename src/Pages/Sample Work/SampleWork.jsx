@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
-import bitdefender from '../../assets/Bitdefender/bitdefender.mp4'
 import storyboard from '../../assets/Bitdefender/Storyboard.png'
 import aesthetic_ideation from '../../assets/Bitdefender/Aesthetic Ideations.png'
 import visual_stages from '../../assets/Bitdefender/Bitdefender Visual Stages.mp4'
@@ -36,33 +35,41 @@ const SampleWork = () => {
   
   return (
     <div className=''>
+      <Navbar/>
       
-      <button onClick={() => navigate(-1)} className="absolute top-4 left-4 bg-gray-300 text-black font-semibold px-4 py-2 rounded-md shadow-md hover:bg-gray-200 transition duration-300 z-40">← Go Back</button>
-       <div>
-    
-        <video src={bitdefender} autoPlay loop muted  controls className='-z-7 opacity-90  w-full h-screen object-cover relative'></video>
+      {/* <button onClick={() => navigate(-1)} className="absolute top-4 left-4 bg-gray-300 text-black font-semibold px-4 py-2 rounded-md shadow-md hover:bg-gray-200 transition duration-300 z-40">← Go Back</button> */}
+       <div className="relative">
+        {/* YouTube Video Container with modified positioning and z-index */}
+        <div className="relative w-full h-screen">
+          <iframe 
+            src="https://www.youtube.com/embed/dI1_Vfvbn0U?autoplay=1&mute=1&loop=1&playlist=dI1_Vfvbn0U&controls=1" 
+            title="Bitdefender Secure Paas"
+            className='w-full h-screen object-cover'
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+            style={{ position: 'relative', zIndex: 0 }}
+          ></iframe>
+        </div>
  
-        <div className='flex absolute top-0 left-0 justify-between  items-center h-screen '>
-        <div className='pl-4 '>
-          <h5 className='text-white text-3xl bolder'>Bitdefender Secure Paas</h5>
-          <div className='text-white w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-125 rounded-md open-sans'>
-          <p>Disclaimer:
-Timestamp 00:00-00:06 is made by Bitdefender and the rest of the video is sample work created by me.
-</p><br/>
-          Bitdefender SecurePass is a password manager that lets you create, save, manage, and share passwords securely with end-to-end encryption. Available on browsers and mobile, it generates strong passwords, stores them in an encrypted vault, and organizes credentials with ease. Share securely with expiration dates and protected links, enhance safety with two-factor authentication, and import passwords seamlessly.</div>
-
-
+        <div className='absolute top-0 left-0 z-10 flex justify-between items-center w-full h-screen pointer-events-none'>
+          <div className='pl-4 pointer-events-auto'>
+            <h5 className='text-white text-3xl bolder'>Bitdefender Secure Paas</h5>
+            <div className='text-white w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-125 rounded-md open-sans'>
+              <p>Disclaimer:
+                Timestamp 00:00-00:06 is made by Bitdefender and the rest of the video is sample work created by me.
+              </p><br/>
+              Bitdefender SecurePass is a password manager that lets you create, save, manage, and share passwords securely with end-to-end encryption. Available on browsers and mobile, it generates strong passwords, stores them in an encrypted vault, and organizes credentials with ease. Share securely with expiration dates and protected links, enhance safety with two-factor authentication, and import passwords seamlessly.
+            </div>
+          </div>
+          <div className='pr-4 w-1/3 pointer-events-auto'>
+            <p className='text-white mb-2 open-sans'>Creation Process...</p>
+            <button className='bg-white pl-2 pr-2 bolder text-xl open-sans' onClick={scrollToDetails}>View Details</button>
+          </div>
         </div>
-        <div className='pr-4 w-1/3'>
-        
-          
-          <p className='text-white mb-2 open-sans'>Creation Process...</p>
-          <button className=' bg-white pl-2 pr-2 bolder text-xl open-sans' onClick={scrollToDetails}>View Details</button>
-        </div>
-        </div>
-        
        </div>
-       <div className='text-white flex flex-col items-center justify-center  pl-5 pr-5' id="sample-show">
+
+       <div className='text-white flex flex-col items-center justify-center pl-5 pr-5' id="sample-show">
         <br/><h2 className='text-4xl underline text-center'>Bitdefender Secure Paas</h2><br/>
         <div className="max-w-3xl mx-auto p-4 sm:p-6">
           {/* Script Dropdown */}
@@ -137,21 +144,54 @@ Timestamp 00:00-00:06 is made by Bitdefender and the rest of the video is sample
         </div>
         
         <p className='text-3xl'>Inspiration</p>
-        <img src={inspiration} className=' my-4 w-1/2  ' alt="" />
+        <img src={inspiration} className='my-4 w-1/2' alt="Inspiration" />
         <p className='text-3xl'>Ideation</p>
         
         <p className='text-2xl'>Color Ideation</p>
-        <video src={color_testing} autoPlay playsInline loop muted className='my-4 w-1/2'></video>
-        <p className='text-2xl'>Icon Ideation</p>
-        <img src={compiled} className=' my-4 w-1/2  ' alt="" />
-        <video src={icon_compilation} autoPlay playsInline loop muted className='my-4 w-1/2'></video>
-        <p className='text-3xl'>Storyboard</p>
-        <img src={storyboard} className=' my-4 w-1/2  ' alt="" />
-        <p className='text-3xl'>Visual Stages</p>
-        <video src={visual_stages} autoPlay playsInline loop muted className=' my-4 w-1/2'></video>
-     
+        <div className="relative w-full max-w-xl my-4">
+          <video 
+            src={color_testing} 
+            autoPlay 
+            playsInline 
+            loop 
+            muted 
+            controls
+            className='w-full'
+          ></video>
+        </div>
 
+        <p className='text-2xl'>Icon Ideation</p>
+        <img src={compiled} className='my-4 w-1/2' alt="Compiled Icons" />
+        
+        <div className="relative w-full max-w-xl my-4">
+          <video 
+            src={icon_compilation} 
+            autoPlay 
+            playsInline 
+            loop 
+            muted 
+            controls
+            className='w-full'
+          ></video>
+        </div>
+
+        <p className='text-3xl'>Storyboard</p>
+        <img src={storyboard} className='my-4 w-1/2' alt="Storyboard" />
+        
+        <p className='text-3xl'>Visual Stages</p>
+        <div className="relative w-full max-w-xl my-4">
+          <video 
+            src={visual_stages} 
+            autoPlay 
+            playsInline 
+            loop 
+            muted 
+            controls
+            className='w-full'
+          ></video>
+        </div>
        </div>
+
        <button 
         onClick={scrollToTop} 
         className="fixed bottom-10 right-10 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-600"

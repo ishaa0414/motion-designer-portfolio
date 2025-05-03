@@ -94,7 +94,7 @@ const Services = () => {
     <>
       <section className="py-6 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8 text-white">Our Services</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8 text-white">Services Offered</h2>
           
           {/* Responsive Infinite Image Slider */}
           <div className="relative w-full overflow-hidden slider-container">

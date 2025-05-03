@@ -27,7 +27,7 @@ const ContactHome = () => {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 md:mt-10">
         <button 
           onClick={handleGetInTouch}
-          className="text-xl sm:text-2xl md:text-3xl px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 gradient w-full sm:w-auto"
+          className="text-xl border sm:text-2xl md:text-3xl px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 gradient w-full sm:w-auto"
         >
           Get in Touch
         </button>

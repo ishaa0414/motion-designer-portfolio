@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'; 
 import { useVideoContext } from '../../VideoContext';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { ArrowUp } from 'lucide-react';
@@ -10,8 +10,51 @@ const PerfiosShow = () => {
   const navigate = useNavigate();
   const { videos } = useVideoContext();
   const detailsRef = useRef(null);
+  const [youtubeEmbedUrl, setYoutubeEmbedUrl] = useState('');
 
   const video = videos.find((v) => v.id === parseInt(id));
+
+  useEffect(() => {
+    if (video && video.Yvideo) {
+      // Convert YouTube link to embed URL
+      const embedUrl = convertYoutubeToEmbed(video.Yvideo);
+      setYoutubeEmbedUrl(embedUrl);
+    }
+  }, [video]);
+
+  // Function to convert YouTube URL to embed format
+  const convertYoutubeToEmbed = (youtubeUrl) => {
+    if (!youtubeUrl || youtubeUrl.trim() === '') return '';
+    
+    // Handle different YouTube URL formats
+    let videoId = '';
+    
+    // Regular YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)
+    const regularMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
+    if (regularMatch) {
+      videoId = regularMatch[1];
+    }
+
+    // YouTube Shorts URL (e.g., https://youtube.com/shorts/VIDEO_ID)
+    const shortsMatch = youtubeUrl.match(/youtube\.com\/shorts\/([^?\s]+)/);
+    if (shortsMatch) {
+      videoId = shortsMatch[1];
+    }
+
+    // Short URL (e.g., https://youtu.be/VIDEO_ID)
+    const shortMatch = youtubeUrl.match(/youtu\.be\/([^?\s]+)/);
+    if (shortMatch && !videoId) {
+      videoId = shortMatch[1];
+    }
+
+    // Return the embed URL if we found a video ID
+    if (videoId) {
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1`;
+    }
+    
+    // If we couldn't parse the URL, return empty string
+    return '';
+  };
 
   if (!video) {
     return (
@@ -47,18 +90,22 @@ const PerfiosShow = () => {
         ← Go Back
       </button>
       
-      {/* Video Container */}
+      {/* YouTube Video Container */}
       <div className="relative w-full h-screen">
-        <video 
-          className='w-full h-screen object-cover' 
-          muted 
-          controls 
-          loop 
-          autoPlay
-        >
-          <source src={video.url} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {youtubeEmbedUrl ? (
+          <iframe 
+            className="w-full h-screen object-cover"
+            src={youtubeEmbedUrl}
+            title={video.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <div className="w-full h-screen flex items-center justify-center bg-black">
+            <p>YouTube video not available for this content</p>
+          </div>
+        )}
       </div>
 
       {/* Video Info Overlay - Positioned to avoid video controls */}
@@ -83,7 +130,7 @@ const PerfiosShow = () => {
       </div>
 
       {/* Details Section */}
-      <div id='details' ref={detailsRef} className='mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 lg:p-10  flex flex-col w-full'>
+      <div id='details' ref={detailsRef} className='mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 lg:p-10 items-center justify-center flex flex-col w-full'>
         <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center'>{video.title}</h1>
         
         <div className='mt-6 space-y-3 sm:space-y-4 open-sans'>
