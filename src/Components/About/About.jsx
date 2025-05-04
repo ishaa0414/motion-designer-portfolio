@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import myPicture from '../../assets/Me 2.JPG';
+import myPicture from '../../assets/Me 2.jpg';
 import Gradient from '../../assets/Gradient Button.png';
 import GFF from '../../assets/About GFF.jpg';
 
