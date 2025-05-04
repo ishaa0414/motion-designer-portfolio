@@ -1,6 +1,6 @@
 import React from 'react';
 import { Copyright } from 'lucide-react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/Logo.png';
 import Behance from '../../assets/icons/Be Icon.png';
 import Ig from '../../assets/icons/Ig Icon.png';
 import LinkedIn from '../../assets/icons/LinkedIn Icon.png';
