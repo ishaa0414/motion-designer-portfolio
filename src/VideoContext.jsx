@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useState } from "react";
-import PerfiosVideo1 from "./assets/Perfios/1. One Click Onboarding 2.mp4";
-import PerfiosVideo2 from "./assets/Perfios/2. FINteraction 2024 Option 2.mp4";
-import PerfiosVideo3 from "./assets/Perfios/3. V1 - eSign (Medium Pace).mp4";
-import PerfiosVideo4 from "./assets/Perfios/4. OneVigil - Fast Pacing.mp4";
-import PerfiosVideo5 from "./assets/Perfios/5. K-Lookup.mp4";
-import PerfiosVideo6 from "./assets/Perfios/6. Data Tamper 2.mp4";
-import PerfiosVideo7 from "./assets/Perfios/7. Perfios Acclaim.mp4";
-import PerfiosVideo8 from "./assets/Perfios/8. Perfios IAdore.mp4";
+// import PerfiosVideo1 from "./assets/Perfios/1. One Click Onboarding 2.mp4";
+// import PerfiosVideo2 from "./assets/Perfios/2. FINteraction 2024 Option 2.mp4";
+// import PerfiosVideo3 from "./assets/Perfios/3. V1 - eSign (Medium Pace).mp4";
+// import PerfiosVideo4 from "./assets/Perfios/4. OneVigil - Fast Pacing.mp4";
+// import PerfiosVideo5 from "./assets/Perfios/5. K-Lookup.mp4";
+// import PerfiosVideo6 from "./assets/Perfios/6. Data Tamper 2.mp4";
+// import PerfiosVideo7 from "./assets/Perfios/7. Perfios Acclaim.mp4";
+// import PerfiosVideo8 from "./assets/Perfios/8. Perfios IAdore.mp4";
 import Perf1 from "./assets/Perfios/perf-1.mp4"
 import Perf2 from "./assets/Perfios/perf-2.mp4"
 import Perf3 from "./assets/Perfios/perf-3.mp4"

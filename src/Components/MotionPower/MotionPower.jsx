@@ -80,7 +80,7 @@ const StatBlock = ({ title, text, source, url }) => (
       <p className='mb-2'>{text}</p>
       <a 
         href={url}
-        className='gradient p-1 mt-1 rounded-md text-white text-xs sm:text-sm inline-block'
+        className='border gradient p-1 mt-1 rounded-md text-white text-xs sm:text-sm inline-block'
         target="_blank"
         rel="noopener noreferrer"
       >

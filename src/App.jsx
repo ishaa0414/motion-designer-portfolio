@@ -15,7 +15,8 @@ import { useRef } from "react"
 import Showreel from "./Pages/Showreel/Showreel"
 import FloatingButtons from "./Components/Floating Icons/FloatingIcons"
 
-import Check from "./Pages/Check/Check"
+
+import ScrollToTop from "./Components/ScrollToTop"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <video src={profilePicture} autoPlay loop muted className='-z-10 absolute top-0 left-0 w-full h-full object-cover'></video>
     
         <VideoProvider>
+          <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<WorkSection/>} />
@@ -33,7 +35,7 @@ function App() {
           <Route path="/sample-work" element={<SampleWork/>}/>
           <Route path="/perfios-show/:id" element={<PerfiosShow/>}/>
           <Route path="/showreel" element={<Showreel/>}/>
-          <Route path="/check" element={<Check/>}/>
+
           <Route path="/show-work" element={<Work/>}/>
           <Route path="/contact" element={<Contact/>}/>
 

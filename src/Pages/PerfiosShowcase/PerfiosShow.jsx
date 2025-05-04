@@ -79,7 +79,7 @@ const PerfiosShow = () => {
   };
 
   return (
-    <div className='text-white relative'>
+    <div className='text-white relative '>
       <Navbar />
       
       {/* Back Button - Repositioned for better mobile experience */}
@@ -102,7 +102,7 @@ const PerfiosShow = () => {
             allowFullScreen
           ></iframe>
         ) : (
-          <div className="w-full h-screen flex items-center justify-center bg-black">
+          <div className="w-full h-screen flex items-center text-center justify-center bg-black">
             <p>YouTube video not available for this content</p>
           </div>
         )}
@@ -130,7 +130,7 @@ const PerfiosShow = () => {
       </div>
 
       {/* Details Section */}
-      <div id='details' ref={detailsRef} className='mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 lg:p-10 items-center justify-center flex flex-col w-full'>
+      <div id='details' ref={detailsRef} className=' text-center mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 lg:p-10 items-center justify-center flex flex-col w-full'>
         <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center'>{video.title}</h1>
         
         <div className='mt-6 space-y-3 sm:space-y-4 open-sans'>

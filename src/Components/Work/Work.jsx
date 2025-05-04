@@ -18,7 +18,7 @@ const Work = () => {
       
       {/* Perfios Section */}
       <div 
-        className='relative text-left group overflow-hidden cursor-pointer mt-10 mx-5 mb-5 rounded-lg'
+        className='relative text-left group overflow-hidden cursor-pointer mt-10 mx-5 mb-5 rounded-lg border-[0.5px] border-white'
         style={{ height: '500px' }} // Fixed height for consistency
         onClick={() => navigate(`/work`)}
       >
@@ -62,7 +62,7 @@ const Work = () => {
 
       {/* Bitdefender Section */}
       <div 
-        className='relative text-left group overflow-hidden cursor-pointer mx-5 mb-5 rounded-lg'
+        className='relative text-left group overflow-hidden cursor-pointer mx-5 mb-5 rounded-lg border-[0.5px] border-white'
         style={{ height: '500px' }} // Fixed height for consistency
         onClick={() => navigate(`/sample-work`)}
       >

@@ -45,7 +45,7 @@ const About = () => {
               When I'm not designing, I admire music videos for their ability to seamlessly blend visuals and sound, geek out over anime, and sharpen my Valorant skills—because creativity thrives on a mix of inspiration, passion, and fun!
             </p>
           </div>
-          <div className="border text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="border-[0.2px] text-white gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Achievement I am Proud Of
           </div>
         </div>
@@ -66,10 +66,10 @@ const About = () => {
               Let's work together to bring your vision to life and make your brand unforgettable.
             </p>
           </div>
-          <div className="text-white border gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
+          <div className="text-white border-[0.2px] gradient p-3 text-xl sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl rounded-sm">
             Get in Touch
           </div>
-          <div className="border text-white gradient-image p-3 rounded-sm text-center">
+          <div className="border-[0.2px] text-white gradient-image p-3 rounded-sm text-center">
             <p className="text-lg md:text-xl lg:text-2xl">shiwang.work@gmail.com</p>
             <hr className="my-2" />
             <button 
