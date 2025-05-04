@@ -136,6 +136,7 @@ const PerfiosShow = () => {
         <div className='mt-6 space-y-3 sm:space-y-4 open-sans'>
           <p className='text-sm sm:text-base'><strong>Brief:</strong> {video.brief}</p>
           <p className='text-sm sm:text-base'><strong>Goal:</strong> {video.goal}</p>
+          
           <p className='text-sm sm:text-base'><strong>Messaging:</strong> {video.messaging}</p>
           <p className='text-sm sm:text-base'>Results(Revenue,Views,Impact)</p>
         </div>
