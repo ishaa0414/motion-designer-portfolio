@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Clipboard, Check } from "lucide-react"; // Import icons
+import { Clipboard, Check, Calendar } from "lucide-react"; // Added Calendar icon
 import { useNavigate } from "react-router-dom"; // Import for navigation
 
-const ContactHome = () => {
+const ContactHome = React.forwardRef((props, ref) => {
   const [copied, setCopied] = useState(false);
   const email = "shiwang.work@gmail.com";
   const navigate = useNavigate(); // Hook for navigation
@@ -18,8 +18,21 @@ const ContactHome = () => {
     navigate("/contact"); // Navigate to contact page
   };
 
+  // Function to open Calendly scheduling popup
+  const openCalendly = () => {
+    // Check if Calendly is loaded
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/your-account', // Replace with your actual Calendly URL
+      });
+    } else {
+      // Fallback - navigate to contact page
+      navigate('/contact');
+    }
+  };
+
   return (
-    <div className="text-white mb-8 px-4">
+    <div ref={ref} className="text-white mb-8 px-4">
       <p className="text-center text-2xl sm:text-3xl md:text-4xl mt-5 font-semibold">
         "Ready to create an impactful Video?"
       </p>
@@ -30,6 +43,14 @@ const ContactHome = () => {
           className="text-xl border sm:text-2xl md:text-3xl px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 gradient w-full sm:w-auto"
         >
           Get in Touch
+        </button>
+        
+        {/* Added Calendly Button with original styling */}
+        <button 
+          onClick={openCalendly}
+          className="text-xl border sm:text-2xl md:text-3xl px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 gradient w-full sm:w-auto"
+        >
+          Book a 1:1 Call
         </button>
         
         <div className="flex items-center gap-2 border px-3 py-1 rounded gradient mt-3 sm:mt-0 w-full sm:w-auto justify-between sm:justify-start">
@@ -45,6 +66,6 @@ const ContactHome = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ContactHome;
