@@ -129,61 +129,114 @@ const PerfiosShow = () => {
         </div>
       </div>
 
-      {/* Details Section */}
-      <div id='details' ref={detailsRef} className=' text-center mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 lg:p-10 items-center justify-center flex flex-col w-full'>
-        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center'>{video.title}</h1>
-        
-        <div className='mt-6 space-y-3 sm:space-y-4 open-sans'>
-          <p className='text-sm sm:text-base'><strong>Brief:</strong> {video.brief}</p>
-          <p className='text-sm sm:text-base'><strong>Goal:</strong> {video.goal}</p>
+      {/* Details Section - Improved Layout */}
+      <div id='details' ref={detailsRef} className=' text-white py-16 px-4'>
+        <div className='max-w-4xl mx-auto'>
+          {/* Title Section */}
+          <div className='text-center mb-12'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6'>{video.title}</h1>
+            <div className='w-24 h-1 bg-white mx-auto'></div>
+          </div>
           
-          <p className='text-sm sm:text-base'><strong>Messaging:</strong> {video.messaging}</p>
-          <p className='text-sm sm:text-base'>Results(Revenue,Views,Impact)</p>
-        </div>
-        
-        <div className='mt-6 space-y-1 sm:space-y-2 text-sm sm:text-base open-sans'>
-          <p><strong>Credits:</strong></p>
-          <p>Shiwang Nath |  Asset creation, Sound, Motion Graphics </p>
-          <p>Perfios  |  Script </p>
-          <p>Play.ht  |  Voice Over</p>
-          <p>Pixabay  |  {video.credits}</p>
-        </div>
-        
-        <hr className="w-full h-[1px] bg-gray-500 mt-5" />
-        
-        <h1 className='text-xl sm:text-2xl font-bold mt-6 text-center'>Inspiration & Ideation</h1>
-        <div className='flex items-center justify-center'>
-          <img 
-            src={video.ideation} 
-            alt="Ideation" 
-            className='my-4 w-full sm:w-3/4 md:w-2/3 lg:w-1/2' 
-          />
-        </div>
-        
-        <hr className="w-full h-[1px] bg-gray-500 mt-5" />
-        
-        <h1 className='text-xl sm:text-2xl font-bold mt-6 text-center'>Story and Storyboarding</h1>
-        <p className='mt-4 text-sm sm:text-base open-sans'><strong>User Journey:</strong> {video.StoryUserJourney}</p>
-        <div className='flex items-center justify-center'>
-          <img 
-            src={video.storyboard} 
-            alt="Storyboard" 
-            className='w-full sm:w-3/4 md:w-2/3 lg:w-1/2 my-4' 
-          />
-        </div>
-        
-        <hr className="w-full h-[1px] bg-gray-500 mt-5" />
-        
-        <h1 className='text-xl sm:text-2xl font-bold mt-6 text-center'>Visual Stages</h1>
-        <div className='flex justify-center items-center'>
-          <video 
-            src={video.VisualStages} 
-            autoPlay 
-            playsInline 
-            loop 
-            className='w-full sm:w-3/4 md:w-2/3 lg:w-1/2 my-4'
-            controls
-          ></video>
+          {/* Project Details Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-16'>
+            <div className='space-y-6'>
+              <div className='bg-gray-900 p-6 rounded-lg'>
+                <h3 className='text-xl font-semibold mb-3 text-white'>Brief</h3>
+                <p className='text-gray-300 leading-relaxed open-sans'>{video.brief}</p>
+              </div>
+              
+              <div className='bg-gray-900 p-6 rounded-lg'>
+                <h3 className='text-xl font-semibold mb-3 text-white'>Goal</h3>
+                <p className='text-gray-300 leading-relaxed open-sans'>{video.goal}</p>
+              </div>
+            </div>
+            
+            <div className='space-y-6'>
+              <div className='bg-gray-900 p-6 rounded-lg'>
+                <h3 className='text-xl font-semibold mb-3 text-white'>Messaging</h3>
+                <p className='text-gray-300 leading-relaxed open-sans'>{video.messaging}</p>
+              </div>
+              
+              <div className='bg-gray-900 p-6 rounded-lg'>
+                <h3 className='text-xl font-semibold mb-3 text-white'>Results</h3>
+                <p className='text-gray-300 leading-relaxed open-sans'>Revenue, Views, Impact</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Credits Section */}
+          <div className='bg-gray-900 p-8 rounded-lg mb-16 text-center'>
+            <h3 className='text-2xl font-semibold mb-6 text-white'>Credits</h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300 open-sans'>
+              <div>
+                <p className='font-semibold text-white'>Motion & Sound</p>
+                <p>Shiwang Nath</p>
+              </div>
+              <div>
+                <p className='font-semibold text-white'>Script</p>
+                <p>Perfios</p>
+              </div>
+              <div>
+                <p className='font-semibold text-white'>Voice</p>
+                <p>{video.play} | {video.voice}</p>
+              </div>
+              <div>
+                <p className='font-semibold text-white'>Assets</p>
+                <p>Pixabay | {video.credits}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Process Sections */}
+          <div className='space-y-16'>
+            {/* Inspiration & Ideation */}
+            <section className='text-center'>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-8'>Inspiration & Ideation</h2>
+              <div className='bg-gray-900 p-4 rounded-lg'>
+                <img 
+                  src={video.ideation} 
+                  alt="Ideation Process" 
+                  className='w-full rounded-lg shadow-lg' 
+                />
+              </div>
+            </section>
+            
+            <div className='w-full h-px bg-gray-700'></div>
+            
+            {/* Story and Storyboarding */}
+            <section className='text-center'>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-8'>Story & Storyboarding</h2>
+              <div className='bg-gray-900 p-6 rounded-lg mb-8'>
+                <h3 className='text-xl font-semibold mb-4 text-white'>User Journey</h3>
+                <p className='text-gray-300 leading-relaxed open-sans'>{video.StoryUserJourney}</p>
+              </div>
+              <div className='bg-gray-900 p-4 rounded-lg'>
+                <img 
+                  src={video.storyboard} 
+                  alt="Storyboard" 
+                  className='w-full rounded-lg shadow-lg' 
+                />
+              </div>
+            </section>
+            
+            <div className='w-full h-px bg-gray-700'></div>
+            
+            {/* Visual Stages */}
+            <section className='text-center'>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-8'>Visual Stages</h2>
+              <div className='bg-gray-900 p-4 rounded-lg'>
+                <video 
+                  src={video.VisualStages} 
+                  autoPlay 
+                  playsInline 
+                  loop 
+                  className='w-full rounded-lg shadow-lg'
+                  controls
+                ></video>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
 

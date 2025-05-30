@@ -161,7 +161,7 @@ const VideoPage = () => {
         <div className='absolute top-1/3 left-4 sm:left-6 md:left-8 bg-black/60 p-4 rounded-lg max-w-[90%] md:max-w-[50%]'>
           <h1 className='text-2xl sm:text-3xl font-bold'>{video.number}</h1>
           <h2 className='text-white text-xl sm:text-2xl mt-2'>{video.title}</h2>
-          <p className='mt-2 text-sm sm:text-base open-sans'>{video.description}</p>
+          {/* <p className='mt-2 text-sm sm:text-base open-sans'>{video.description}</p> */}
         </div>
         
         <Footer/>

@@ -69,11 +69,12 @@ const SampleWork = () => {
         </div>
        </div>
 
-       <div className='text-white flex flex-col items-center justify-center pl-5 pr-5' id="sample-show">
-        <br/><h2 className='text-4xl underline text-center'>Bitdefender Secure Paas</h2><br/>
-        <div className="max-w-3xl mx-auto p-4 sm:p-6">
-          {/* Script Dropdown */}
-          <div className="mb-8 border border-gray-700 rounded-lg overflow-hidden">
+       <div className='text-white flex flex-col items-center justify-center px-4' id="sample-show">
+        <br/><h2 className='text-4xl underline text-center mb-8'>Bitdefender Secure Paas</h2>
+        
+        {/* Script Section - Centered with consistent width */}
+        <div className="w-full max-w-4xl mx-auto mb-12">
+          <div className="border border-gray-700 rounded-lg overflow-hidden">
             <div 
               className="flex justify-between items-center p-4 bg-gray-800 cursor-pointer"
               onClick={toggleScript}
@@ -143,52 +144,56 @@ const SampleWork = () => {
           </div>
         </div>
         
-        <p className='text-3xl'>Inspiration</p>
-        <img src={inspiration} className='my-4 w-1/2' alt="Inspiration" />
-        <p className='text-3xl'>Ideation</p>
-        
-        <p className='text-2xl'>Color Ideation</p>
-        <div className="relative w-full max-w-xl my-4">
-          <video 
-            src={color_testing} 
-            autoPlay 
-            playsInline 
-            loop 
-            muted 
-            controls
-            className='w-full'
-          ></video>
-        </div>
+        {/* All content sections with consistent width and center alignment */}
+        <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
+          <h3 className='text-3xl mb-6 text-center'>Inspiration</h3>
+          <img src={inspiration} className='mb-12 w-full max-w-2xl' alt="Inspiration" />
+          
+          <h3 className='text-3xl mb-6 text-center'>Ideation</h3>
+          
+          <h4 className='text-2xl mb-4 text-center'>Color Ideation</h4>
+          <div className="w-full max-w-2xl mb-8">
+            <video 
+              src={color_testing} 
+              autoPlay 
+              playsInline 
+              loop 
+              muted 
+              controls
+              className='w-full'
+            ></video>
+          </div>
 
-        <p className='text-2xl'>Icon Ideation</p>
-        <img src={compiled} className='my-4 w-1/2' alt="Compiled Icons" />
-        
-        <div className="relative w-full max-w-xl my-4">
-          <video 
-            src={icon_compilation} 
-            autoPlay 
-            playsInline 
-            loop 
-            muted 
-            controls
-            className='w-full'
-          ></video>
-        </div>
+          <h4 className='text-2xl mb-4 text-center'>Icon Ideation</h4>
+          <img src={compiled} className='mb-6 w-full max-w-2xl' alt="Compiled Icons" />
+          
+          <div className="w-full max-w-2xl mb-12">
+            <video 
+              src={icon_compilation} 
+              autoPlay 
+              playsInline 
+              loop 
+              muted 
+              controls
+              className='w-full'
+            ></video>
+          </div>
 
-        <p className='text-3xl'>Storyboard</p>
-        <img src={storyboard} className='my-4 w-1/2' alt="Storyboard" />
-        
-        <p className='text-3xl'>Visual Stages</p>
-        <div className="relative w-full max-w-xl my-4">
-          <video 
-            src={visual_stages} 
-            autoPlay 
-            playsInline 
-            loop 
-            muted 
-            controls
-            className='w-full'
-          ></video>
+          <h3 className='text-3xl mb-6 text-center'>Storyboard</h3>
+          <img src={storyboard} className='mb-12 w-full max-w-2xl' alt="Storyboard" />
+          
+          <h3 className='text-3xl mb-6 text-center'>Visual Stages</h3>
+          <div className="w-full max-w-2xl mb-12">
+            <video 
+              src={visual_stages} 
+              autoPlay 
+              playsInline 
+              loop 
+              muted 
+              controls
+              className='w-full'
+            ></video>
+          </div>
         </div>
        </div>
 

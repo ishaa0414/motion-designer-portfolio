@@ -11,7 +11,7 @@ import X from '../../assets/icons/X Icon.png';
 const Contact = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [successMessage, setSuccessMessage] = useState(""); 
-  const [showCalendly, setShowCalendly] = useState(false);
+  const [showCalendly, setShowCalendly] = useState(true); // Changed from false to true
   
   const socialLinks = {
     behance: "https://www.behance.net/shiwangnath",
@@ -62,7 +62,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={`flex flex-col min-h-screen ${showCalendly ? 'bg-gray-950' : ''}`}>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       
       <div className="flex-1 flex justify-center items-center p-4 mt-10">
@@ -147,7 +147,7 @@ const Contact = () => {
                   href={socialLinks.behance} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110"
+                  className="transition-transform bg-black hover:scale-110"
                 >
                   <img src={Behance} className="w-7" alt="Behance" />
                 </a>
@@ -156,7 +156,7 @@ const Contact = () => {
                   href={socialLinks.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110"
+                  className="transition-transform bg-black hover:scale-110"
                 >
                   <img src={Ig} className="w-7" alt="Instagram" />
                 </a>
@@ -165,7 +165,7 @@ const Contact = () => {
                   href={socialLinks.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110"
+                  className="transition-transform bg-black hover:scale-110"
                 >
                   <img src={LinkedIn} className="w-7" alt="LinkedIn" />
                 </a>
@@ -174,7 +174,7 @@ const Contact = () => {
                   href={socialLinks.twitter} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110"
+                  className="transition-transform bg-black hover:scale-110"
                 >
                   <img src={X} className="w-7" alt="Twitter/X" />
                 </a>
