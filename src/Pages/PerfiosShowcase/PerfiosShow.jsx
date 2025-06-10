@@ -159,8 +159,8 @@ const PerfiosShow = () => {
               </div>
               
               <div className='bg-gray-900 p-6 rounded-lg'>
-                <h3 className='text-xl font-semibold mb-3 text-white'>Results</h3>
-                <p className='text-gray-300 leading-relaxed open-sans'>Revenue, Views, Impact</p>
+                <h3 className='text-xl font-semibold mb-3 text-white'></h3>
+                <p className='text-gray-300 leading-relaxed open-sans'></p>
               </div>
             </div>
           </div>
