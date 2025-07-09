@@ -17,6 +17,7 @@ import FloatingButtons from "./Components/Floating Icons/FloatingIcons"
 
 
 import ScrollToTop from "./Components/ScrollToTop"
+import CoverPage from "./Pages/CoverPage"
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
 
           <Route path="/show-work" element={<Work/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/cover" element={<CoverPage/>}/>
 
         </Routes>
         </VideoProvider>
