@@ -30,19 +30,16 @@ function App() {
         <VideoProvider>
           <ScrollToTop/>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/work" element={<WorkSection/>} />
           <Route path="/work-showcase/:id" element={<VideoPage/>}/>
           <Route path="/work-tile" element={<VideoList/>}/>
           <Route path="/sample-work" element={<SampleWork/>}/>
           <Route path="/perfios-show/:id" element={<PerfiosShow/>}/>
           <Route path="/showreel" element={<Showreel/>}/>
-
           <Route path="/show-work" element={<Work/>}/>
           <Route path="/contact" element={<Contact/>}/>
-          <Route path="/cover" element={<CoverPage/>}/>
-          <Route path="/" element={<PortfolioCover/>}/>
-
+          <Route path="/cover-page" element={<PortfolioCover/>}/>
         </Routes>
         </VideoProvider>
         
