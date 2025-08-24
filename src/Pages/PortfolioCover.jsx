@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Linkedin, Calendar, Send, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { useVideoContext } from '../VideoContext';
+import { useNavigate } from 'react-router-dom';
+import profilePhoto from '../assets/profile-photo.jpg';
 
 const PortfolioCover = ({ profileImage = null }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -12,6 +14,7 @@ const PortfolioCover = ({ profileImage = null }) => {
     years: 0
   });
   const { videos } = useVideoContext();
+  const navigate = useNavigate(); // Add this hook
   
   // Filter videos based on the IDs you want to display: 11, 10, 1, 3, 4, 5, 9, 8
   const selectedVideoIds = [12, 11, 10, 1, 3, 4, 5, 9, 8];
@@ -45,6 +48,11 @@ const PortfolioCover = ({ profileImage = null }) => {
     views: 80000,
     hours: 7500,
     years: 7
+  };
+
+  // Add this function to handle video clicks
+  const handleVideoClick = (video) => {
+    navigate(`/work-showcase/${video.id}`);
   };
 
   // Animate stats on component mount
@@ -127,15 +135,11 @@ const PortfolioCover = ({ profileImage = null }) => {
       <section className="flex flex-col items-center justify-center min-h-screen px-4">
         <div className="text-center mb-12">
           <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center mb-6 mx-auto overflow-hidden">
-            {profileImage ? (
-              <img 
-                src={profileImage} 
-                alt="Shiwang Nath" 
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <span className="text-sm">Profile</span>
-            )}
+            <img 
+              src={profilePhoto} 
+              alt="Shiwang Nath" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Shiwang Nath</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
@@ -192,9 +196,22 @@ const PortfolioCover = ({ profileImage = null }) => {
             </div>
           </div>
           
-          <button className="bg-transparent border border-gray-600 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-colors duration-300">
-            Work With Me
-          </button>
+          <div className="flex gap-4 justify-center">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="bg-transparent border border-gray-600 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              Work With Me
+            </button>
+            <a
+              href="/path-to-your-case-study.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-300 font-medium"
+            >
+              Case Study
+            </a>
+          </div>
         </div>
       </section>
 
@@ -203,19 +220,25 @@ const PortfolioCover = ({ profileImage = null }) => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Selected Work</h2>
           <div className="grid grid-cols-3 gap-4">
-            {/* Display selected videos */}
+            {/* Display selected videos - Updated onClick handler */}
             {displayVideos.map((video, index) => (
               <div 
                 key={video.id} 
                 className="aspect-square bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer group relative overflow-hidden"
-                onClick={() => {
-                  if (video.Yvideo) {
-                    window.open(video.Yvideo, '_blank');
-                  }
-                }}
+                onClick={() => handleVideoClick(video)} // Updated this line
               >
-                {/* Thumbnail */}
-                {video.thumbnail ? (
+                {/* Thumbnail or Video */}
+                {video.Yvideo ? (
+                  <div className="w-full h-full relative">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.Yvideo.split('/').pop().split('?')[0]}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${video.Yvideo.split('/').pop().split('?')[0]}`}
+                      className="w-full h-full object-cover"
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      title={video.title}
+                    />
+                  </div>
+                ) : video.thumbnail ? (
                   <img 
                     src={video.thumbnail} 
                     alt={video.title}
