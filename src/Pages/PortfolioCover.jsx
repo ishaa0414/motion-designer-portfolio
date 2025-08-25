@@ -1,58 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, Calendar, Send, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { Mail, Linkedin, Calendar, Send, ChevronLeft, ChevronRight, Play, ArrowRight } from 'lucide-react';
 import { useVideoContext } from '../VideoContext';
 import { useNavigate } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.jpg';
 
-const PortfolioCover = ({ profileImage = null }) => {
+const PortfolioCover = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [statsLoaded, setStatsLoaded] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({
     projects: 0,
-    views: 0,
-    hours: 0,
-    years: 0
+    countries: 0,
+    companies: 0,
+    events: 0
   });
+
+  // Use VideoContext to get real video data
   const { videos } = useVideoContext();
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate();
+
+  // Filter and order videos based on specified IDs: 11,10,1,3,4,5,9,12,8
+  const selectedVideoIds = [11, 10, 1, 3, 4, 5, 9, 12, 8];
   
-  // Filter videos based on the IDs you want to display: 11, 10, 1, 3, 4, 5, 9, 8
-  const selectedVideoIds = [12, 11, 10, 1, 3, 4, 5, 9, 8];
-  
-  // Create a map for quick lookup and preserve order
+  // Create a map for quick lookup
   const videoMap = videos.reduce((map, video) => {
     map[video.id] = video;
     return map;
   }, {});
   
-  // Get videos in the specified order, filtering out any that don't exist
-  const selectedVideos = selectedVideoIds
+  // Get only the specified videos in the exact order
+  const displayVideos = selectedVideoIds
     .map(id => videoMap[id])
     .filter(video => video !== undefined);
-  
-  // If we don't have enough videos, fill with remaining videos
-  const remainingVideos = videos.filter(video => !selectedVideoIds.includes(video.id));
-  const allSelectedVideos = [...selectedVideos, ...remainingVideos];
-  
+
   // Debug logging
   console.log('Available videos:', videos.map(v => ({ id: v.id, title: v.title })));
   console.log('Selected video IDs:', selectedVideoIds);
-  console.log('Found videos:', selectedVideos.map(v => ({ id: v.id, title: v.title })));
-  
-  // Display all selected videos
-  const displayVideos = allSelectedVideos;
+  console.log('Found videos:', displayVideos.map(v => ({ id: v.id, title: v.title })));
 
-  // Target stats values
+  // Updated target stats values
   const targetStats = {
     projects: 20,
-    views: 80000,
-    hours: 7500,
-    years: 7
+    countries: 100,
+    companies: 7500,
+    events: 9
   };
 
-  // Add this function to handle video clicks
+  // Handle video clicks
   const handleVideoClick = (video) => {
     navigate(`/work-showcase/${video.id}`);
+  };
+
+  // Handle view more button
+  const handleViewMore = () => {
+    navigate('/work');
+  };
+
+  // Handle contact navigation
+  const handleContactClick = () => {
+    navigate('/contact');
   };
 
   // Animate stats on component mount
@@ -71,9 +76,9 @@ const PortfolioCover = ({ profileImage = null }) => {
         
         setAnimatedStats({
           projects: Math.floor(targetStats.projects * easeOut),
-          views: Math.floor(targetStats.views * easeOut),
-          hours: Math.floor(targetStats.hours * easeOut),
-          years: Math.floor(targetStats.years * easeOut)
+          countries: Math.floor(targetStats.countries * easeOut),
+          companies: Math.floor(targetStats.companies * easeOut),
+          events: Math.floor(targetStats.events * easeOut)
         });
         
         if (currentStep >= steps) {
@@ -94,13 +99,13 @@ const PortfolioCover = ({ profileImage = null }) => {
 
   // Format numbers for display
   const formatNumber = (num, type) => {
-    if (type === 'views' && num >= 1000) {
-      return `${(num / 1000).toFixed(0)}K+`;
+    if (type === 'countries' && num >= 1) {
+      return `${num}+`;
     }
-    if (type === 'hours' && num >= 1000) {
+    if (type === 'companies' && num >= 1000) {
       return `${(num / 1000).toFixed(1)}K+`;
     }
-    return `${num}${type !== 'hours' ? '+' : '+'}`;
+    return `${num}+`;
   };
 
   const testimonials = [
@@ -130,65 +135,81 @@ const PortfolioCover = ({ profileImage = null }) => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section with Integrated Stats */}
-      <section className="flex flex-col items-center justify-center min-h-screen px-4">
-        <div className="text-center mb-12">
-          <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center mb-6 mx-auto overflow-hidden">
+    <div className="min-h-screen  text-white">
+      {/* Hero Section with Background Video */}
+      <section className="relative flex flex-col items-center justify-center min-h-screen px-4 overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="https://drive.google.com/uc?export=download&id=1LvNlOat0dH1Nbq727NXZ0V7oIC0Dr9eE" type="video/mp4" />
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 "></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 text-center mb-8">
+          <div className="w-48 h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full border-4 border-white flex items-center justify-center mb-8 mx-auto overflow-hidden shadow-xl">
             <img 
               src={profilePhoto} 
               alt="Shiwang Nath" 
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Shiwang Nath</h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-xl">Shiwang Nath</h1>
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto mb-6 drop-shadow-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
             Motion Designer crafting high-impact visuals for SaaS, Cybersecurity, and Tech brands worldwide.
           </p>
           
-          {/* Animated Stats */}
-          <div className="max-w-2xl mx-auto mb-8">
-            <div className="grid grid-cols-4 gap-6 text-center">
+          {/* Updated Stats */}
+          <div className="max-w-xl mx-auto mb-6">
+            <div className="grid grid-cols-4 gap-3 text-center">
               <div className="group">
-                <div className={`text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 ${
+                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
                   statsLoaded ? 'text-white' : 'text-blue-400'
                 }`}>
                   {formatNumber(animatedStats.projects, 'projects')}
                 </div>
-                <div className="text-gray-400 text-xs md:text-sm">Projects</div>
+                <div className="text-gray-300 text-xs md:text-sm font-medium">Projects</div>
                 {!statsLoaded && (
                   <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
                 )}
               </div>
               <div className="group">
-                <div className={`text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 ${
+                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
                   statsLoaded ? 'text-white' : 'text-blue-400'
                 }`}>
-                  {formatNumber(animatedStats.views, 'views')}
+                  {formatNumber(animatedStats.countries, 'countries')}
                 </div>
-                <div className="text-gray-400 text-xs md:text-sm">Views</div>
+                <div className="text-gray-300 text-xs md:text-sm font-medium">Countries</div>
                 {!statsLoaded && (
                   <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
                 )}
               </div>
               <div className="group">
-                <div className={`text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 ${
+                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
                   statsLoaded ? 'text-white' : 'text-blue-400'
                 }`}>
-                  {formatNumber(animatedStats.hours, 'hours')}
+                  {formatNumber(animatedStats.companies, 'companies')}
                 </div>
-                <div className="text-gray-400 text-xs md:text-sm">Hours</div>
+                <div className="text-gray-300 text-xs md:text-sm font-medium">Companies</div>
                 {!statsLoaded && (
                   <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
                 )}
               </div>
               <div className="group">
-                <div className={`text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 ${
+                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
                   statsLoaded ? 'text-white' : 'text-blue-400'
                 }`}>
-                  {formatNumber(animatedStats.years, 'years')}
+                  {formatNumber(animatedStats.events, 'events')}
                 </div>
-                <div className="text-gray-400 text-xs md:text-sm">Years</div>
+                <div className="text-gray-300 text-xs md:text-sm font-medium">Events</div>
                 {!statsLoaded && (
                   <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
                 )}
@@ -196,87 +217,106 @@ const PortfolioCover = ({ profileImage = null }) => {
             </div>
           </div>
           
-          <div className="flex gap-4 justify-center">
+          {/* CTA Buttons - Smaller size */}
+          <div className="flex gap-3 justify-center flex-wrap">
             <button 
-              onClick={() => navigate('/contact')}
-              className="bg-transparent border border-gray-600 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-colors duration-300"
+              onClick={handleContactClick}
+              className="bg-transparent border-2 border-gray-400 text-white px-5 py-2.5 rounded-lg hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Work With Me
             </button>
             <a
-              href="/path-to-your-case-study.pdf"
+              href="https://drive.google.com/file/d/1LvNlOat0dH1Nbq727NXZ0V7oIC0Dr9eE/view"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-300 font-medium"
+              className="bg-white text-black px-5 py-2.5 rounded-lg hover:bg-gray-200 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Case Study
             </a>
+            <button 
+              onClick={() => window.open('https://shiwang-portfolio.com', '_blank')}
+              className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              View Website
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Selected Work Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Selected Work</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {/* Display selected videos - Updated onClick handler */}
+      {/* Selected Work Section with Background */}
+      <section className="relative py-16 px-4">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0"></div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Selected Work</h2>
+          
+          {/* Balanced Video Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
             {displayVideos.map((video, index) => (
               <div 
                 key={video.id} 
-                className="aspect-square bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer group relative overflow-hidden"
-                onClick={() => handleVideoClick(video)} // Updated this line
+                className="aspect-video bg-gray-900 rounded-lg border border-gray-700 hover:border-gray-500 transition-all duration-300 cursor-pointer group relative overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-105"
+                onClick={() => handleVideoClick(video)}
               >
                 {/* Thumbnail or Video */}
-                {video.Yvideo ? (
+                {video.videoUrl || video.Yvideo ? (
                   <div className="w-full h-full relative">
                     <iframe
-                      src={`https://www.youtube.com/embed/${video.Yvideo.split('/').pop().split('?')[0]}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${video.Yvideo.split('/').pop().split('?')[0]}`}
-                      className="w-full h-full object-cover"
+                      src={`https://www.youtube.com/embed/${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}&playsinline=1&loop=1`}
+                      className="w-full h-full object-cover rounded-lg"
                       frameBorder="0"
-                      allow="autoplay; encrypted-media"
+                      allow="autoplay; encrypted-media; picture-in-picture"
                       title={video.title}
                     />
                   </div>
-                ) : video.thumbnail ? (
+                ) : video.thumbnail || video.thumbnailUrl ? (
                   <img 
-                    src={video.thumbnail} 
+                    src={video.thumbnail || video.thumbnailUrl} 
                     alt={video.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    {video.title}
+                  <div className="w-full h-full flex items-center justify-center text-gray-500 rounded-lg bg-gray-800">
+                    {video.title || `Video ${video.id}`}
                   </div>
                 )}
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
                   <div className="text-center">
-                    <Play className="mx-auto mb-2 text-white" size={32} />
-                    <p className="text-white text-sm font-medium px-2">{video.title}</p>
+                    <Play className="mx-auto mb-2 text-white drop-shadow-lg" size={32} />
+                    <p className="text-white text-sm font-medium px-3 drop-shadow-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>{video.title || `Video ${video.id}`}</p>
                   </div>
                 </div>
-                
-                {/* Video number badge */}
-                <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                  {video.number || video.id}
-                </div>
+
               </div>
             ))}
+          </div>
+          
+          {/* View More Button */}
+          <div className="text-center">
+            <button
+              onClick={handleViewMore}
+              className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2 mx-auto"
+            >
+              View More Work
+              <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Balanced */}
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What Clients Say</h2>
-          <div className="bg-gray-900 rounded-lg p-8 border border-gray-800 relative">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Clients Say</h2>
+          <div className="bg-gray-900/50 rounded-xl p-6 md:p-8 border border-gray-800 relative backdrop-blur-sm shadow-xl">
             {/* Navigation arrows */}
             <button 
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110"
               disabled={testimonials.length <= 1}
             >
               <ChevronLeft size={24} />
@@ -284,7 +324,7 @@ const PortfolioCover = ({ profileImage = null }) => {
             
             <button 
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110"
               disabled={testimonials.length <= 1}
             >
               <ChevronRight size={24} />
@@ -292,15 +332,15 @@ const PortfolioCover = ({ profileImage = null }) => {
 
             {/* Testimonial content */}
             <div className="px-8">
-              <p className="text-gray-300 text-lg text-center mb-6 leading-relaxed">
+              <p className="text-gray-300 text-lg md:text-xl text-left mb-6 leading-relaxed font-light" style={{ fontFamily: 'Open Sans, sans-serif' }}>
                 "{testimonials[currentTestimonial].text}"
               </p>
               
-              <div className="text-center">
-                <p className="font-semibold text-white mb-1">
+              <div className="text-left">
+                <p className="font-semibold text-white text-lg mb-1">
                   {testimonials[currentTestimonial].author}
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm" style={{ fontFamily: 'Open Sans, sans-serif' }}>
                   {testimonials[currentTestimonial].position}
                 </p>
               </div>
@@ -313,8 +353,8 @@ const PortfolioCover = ({ profileImage = null }) => {
                   <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                      index === currentTestimonial ? 'bg-white' : 'bg-gray-600'
+                    className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-125 ${
+                      index === currentTestimonial ? 'bg-white shadow-lg' : 'bg-gray-600'
                     }`}
                   />
                 ))}
@@ -324,43 +364,45 @@ const PortfolioCover = ({ profileImage = null }) => {
         </div>
       </section>
 
-      {/* Let's Work Together Section */}
+      {/* Let's Work Together Section - Balanced */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Let's Work Together</h2>
-          <p className="text-gray-400 mb-8">Ready to elevate your brand with motion design?</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Let's Work Together</h2>
+          <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+            Ready to elevate your brand with stunning motion design? Let's create something extraordinary together.
+          </p>
           <div className="flex justify-center space-x-8 flex-wrap gap-4">
             <a 
               href="mailto:shiwang.work@gmail.com"
-              className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+              className="flex items-center space-x-2 hover:text-blue-400 transition-all duration-300 cursor-pointer group transform hover:scale-110"
             >
-              <Mail size={16} className="text-blue-500" />
-              <span className="text-sm">Email</span>
+              <Mail size={20} className="text-blue-500 group-hover:text-blue-400" />
+              <span className="text-base font-medium">Email</span>
             </a>
             <a 
               href="https://www.linkedin.com/in/shiwangn5/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+              className="flex items-center space-x-2 hover:text-blue-400 transition-all duration-300 cursor-pointer group transform hover:scale-110"
             >
-              <Linkedin size={16} className="text-blue-500" />
-              <span className="text-sm">LinkedIn</span>
+              <Linkedin size={20} className="text-blue-500 group-hover:text-blue-400" />
+              <span className="text-base font-medium">LinkedIn</span>
             </a>
             <a 
               href="https://calendly.com/shiwang-work"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+              className="flex items-center space-x-2 hover:text-blue-400 transition-all duration-300 cursor-pointer group transform hover:scale-110"
             >
-              <Calendar size={16} className="text-blue-500" />
-              <span className="text-sm">Book Discovery Call</span>
+              <Calendar size={20} className="text-blue-500 group-hover:text-blue-400" />
+              <span className="text-base font-medium">Book Discovery Call</span>
             </a>
             <a 
               href="/contact"
-              className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+              className="flex items-center space-x-2 hover:text-blue-400 transition-all duration-300 cursor-pointer group transform hover:scale-110"
             >
-              <Send size={16} className="text-blue-500" />
-              <span className="text-sm">Send Inquiry</span>
+              <Send size={20} className="text-blue-500 group-hover:text-blue-400" />
+              <span className="text-base font-medium">Send Inquiry</span>
             </a>
           </div>
         </div>
