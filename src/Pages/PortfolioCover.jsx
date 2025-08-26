@@ -138,14 +138,15 @@ const PortfolioCover = () => {
     <div className="min-h-screen  text-white">
       {/* Hero Section with Background Video */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-4 overflow-hidden">
-        {/* Background Video */}
+        {/* Background Video - REMOVED AUTOPLAY */}
         <div className="absolute inset-0 w-full h-full">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
             muted
             loop
             playsInline
+            controls
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3C/svg%3E"
           >
             <source src="https://drive.google.com/uc?export=download&id=1LvNlOat0dH1Nbq727NXZ0V7oIC0Dr9eE" type="video/mp4" />
           </video>
@@ -163,62 +164,12 @@ const PortfolioCover = () => {
             />
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-xl">Shiwang Nath</h1>
-          <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto mb-6 drop-shadow-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+          <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto mb-8 drop-shadow-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
             Motion Designer crafting high-impact visuals for SaaS, Cybersecurity, and Tech brands worldwide.
           </p>
           
-          {/* Updated Stats */}
-          <div className="max-w-xl mx-auto mb-6">
-            <div className="grid grid-cols-4 gap-3 text-center">
-              <div className="group">
-                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
-                  statsLoaded ? 'text-white' : 'text-blue-400'
-                }`}>
-                  {formatNumber(animatedStats.projects, 'projects')}
-                </div>
-                <div className="text-gray-300 text-xs md:text-sm font-medium">Projects</div>
-                {!statsLoaded && (
-                  <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
-                )}
-              </div>
-              <div className="group">
-                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
-                  statsLoaded ? 'text-white' : 'text-blue-400'
-                }`}>
-                  {formatNumber(animatedStats.countries, 'countries')}
-                </div>
-                <div className="text-gray-300 text-xs md:text-sm font-medium">Countries</div>
-                {!statsLoaded && (
-                  <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
-                )}
-              </div>
-              <div className="group">
-                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
-                  statsLoaded ? 'text-white' : 'text-blue-400'
-                }`}>
-                  {formatNumber(animatedStats.companies, 'companies')}
-                </div>
-                <div className="text-gray-300 text-xs md:text-sm font-medium">Companies</div>
-                {!statsLoaded && (
-                  <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
-                )}
-              </div>
-              <div className="group">
-                <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 drop-shadow-lg ${
-                  statsLoaded ? 'text-white' : 'text-blue-400'
-                }`}>
-                  {formatNumber(animatedStats.events, 'events')}
-                </div>
-                <div className="text-gray-300 text-xs md:text-sm font-medium">Events</div>
-                {!statsLoaded && (
-                  <div className="mt-1 h-0.5 bg-blue-400 rounded animate-pulse"></div>
-                )}
-              </div>
-            </div>
-          </div>
-          
           {/* CTA Buttons - Smaller size */}
-          <div className="flex gap-3 justify-center flex-wrap">
+          <div className="flex gap-3 justify-center flex-wrap mb-12">
             <button 
               onClick={handleContactClick}
               className="bg-transparent border-2 border-gray-400 text-white px-5 py-2.5 rounded-lg hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -240,6 +191,56 @@ const PortfolioCover = () => {
               View Website
             </button>
           </div>
+
+          {/* Updated Stats - Bigger and below CTA */}
+          <div className="max-w-4xl mx-auto mt-16 open-sans">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="group">
+                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
+                  statsLoaded ? 'text-white' : 'text-blue-400'
+                }`}>
+                  {formatNumber(animatedStats.projects, 'projects')}
+                </div>
+                <div className="text-gray-300 text-base md:text-lg font-medium">Projects Completed</div>
+                {!statsLoaded && (
+                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
+                )}
+              </div>
+              <div className="group">
+                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
+                  statsLoaded ? 'text-white' : 'text-blue-400'
+                }`}>
+                  {formatNumber(animatedStats.countries, 'countries')}
+                </div>
+                <div className="text-gray-300 text-base md:text-lg font-medium">Countries Reached</div>
+                {!statsLoaded && (
+                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
+                )}
+              </div>
+              <div className="group">
+                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
+                  statsLoaded ? 'text-white' : 'text-blue-400'
+                }`}>
+                  {formatNumber(animatedStats.companies, 'companies')}
+                </div>
+                <div className="text-gray-300 text-base md:text-lg font-medium">Companies Reached</div>
+                {!statsLoaded && (
+                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
+                )}
+              </div>
+              <div className="group">
+                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
+                  statsLoaded ? 'text-white' : 'text-blue-400'
+                }`}>
+                  {formatNumber(animatedStats.events, 'events')}
+                </div>
+                <div className="text-gray-300 text-base md:text-lg font-medium">Global Events Showcased</div>
+                {!statsLoaded && (
+                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -260,23 +261,32 @@ const PortfolioCover = () => {
                 className="aspect-video bg-gray-900 rounded-lg border border-gray-700 hover:border-gray-500 transition-all duration-300 cursor-pointer group relative overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-105"
                 onClick={() => handleVideoClick(video)}
               >
-                {/* Thumbnail or Video */}
-                {video.videoUrl || video.Yvideo ? (
-                  <div className="w-full h-full relative">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}&playsinline=1&loop=1`}
-                      className="w-full h-full object-cover rounded-lg"
-                      frameBorder="0"
-                      allow="autoplay; encrypted-media; picture-in-picture"
-                      title={video.title}
-                    />
-                  </div>
+                {/* Use imported thumbnails from video context */}
+                {video.thumb ? (
+                  <img 
+                    src={video.thumb} 
+                    alt={video.title}
+                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+                  />
                 ) : video.thumbnail || video.thumbnailUrl ? (
                   <img 
                     src={video.thumbnail || video.thumbnailUrl} 
                     alt={video.title}
                     className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
                   />
+                ) : video.videoUrl || video.Yvideo ? (
+                  <div className="w-full h-full relative">
+                    {/* Fallback to YouTube thumbnail if no imported thumbnail */}
+                    <img
+                      src={`https://img.youtube.com/vi/${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}/maxresdefault.jpg`}
+                      className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      alt={video.title}
+                      onError={(e) => {
+                        // Fallback to medium quality if maxres doesn't exist
+                        e.target.src = `https://img.youtube.com/vi/${(video.videoUrl || video.Yvideo).split('/').pop().split('?')[0]}/mqdefault.jpg`;
+                      }}
+                    />
+                  </div>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-gray-500 rounded-lg bg-gray-800">
                     {video.title || `Video ${video.id}`}
