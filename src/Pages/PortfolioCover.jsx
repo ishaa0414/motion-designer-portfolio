@@ -3,6 +3,7 @@ import { Mail, Linkedin, Calendar, Send, ChevronLeft, ChevronRight, Play, ArrowR
 import { useVideoContext } from '../VideoContext';
 import { useNavigate } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.jpg';
+import HeroVideo from '../assets/cover-video/HeroSectionVideo.mp4';
 
 const PortfolioCover = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -135,24 +136,26 @@ const PortfolioCover = () => {
   };
 
   return (
-    <div className="min-h-screen  text-white">
+    <div className="min-h-screen text-white">
       {/* Hero Section with Background Video */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-4 overflow-hidden">
-        {/* Background Video - REMOVED AUTOPLAY */}
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            muted
-            loop
-            playsInline
-            controls
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3C/svg%3E"
-          >
-            <source src="https://drive.google.com/uc?export=download&id=1LvNlOat0dH1Nbq727NXZ0V7oIC0Dr9eE" type="video/mp4" />
-          </video>
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 "></div>
-        </div>
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ 
+            filter: 'brightness(0.4)', // Darken video for better text readability
+          }}
+        >
+          <source src={HeroVideo} type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+        </video>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 z-5"></div>
         
         {/* Content */}
         <div className="relative z-10 text-center mb-8">
@@ -184,9 +187,18 @@ const PortfolioCover = () => {
             >
               Case Study
             </a>
+            <a
+              href="https://www.linkedin.com/in/shiwangn5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
+            >
+              <Linkedin size={16} />
+              View LinkedIn
+            </a>
             <button 
-              onClick={() => window.open('https://shiwang-portfolio.com', '_blank')}
-              className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
+              onClick={() => navigate('/')}
+              className="bg-transparent border-2 border-blue-400 text-blue-400 px-5 py-2.5 rounded-lg hover:bg-blue-400 hover:text-white transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               View Website
             </button>
