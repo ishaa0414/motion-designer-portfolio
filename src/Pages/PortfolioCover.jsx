@@ -168,7 +168,7 @@ const PortfolioCover = () => {
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-xl">Shiwang Nath</h1>
           <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto mb-8 drop-shadow-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-            Motion Designer crafting high-impact visuals for SaaS, Cybersecurity, and Tech brands worldwide.
+            Motion Designer crafting high-impact visuals for SaaS and Tech brands worldwide.
           </p>
           
           {/* CTA Buttons - Smaller size */}
