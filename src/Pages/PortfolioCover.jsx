@@ -214,9 +214,6 @@ const PortfolioCover = () => {
                   {formatNumber(animatedStats.projects, 'projects')}
                 </div>
                 <div className="text-gray-300 text-base md:text-lg font-medium">Projects Completed</div>
-                {!statsLoaded && (
-                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
-                )}
               </div>
               <div className="group">
                 <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
@@ -225,9 +222,6 @@ const PortfolioCover = () => {
                   {formatNumber(animatedStats.countries, 'countries')}
                 </div>
                 <div className="text-gray-300 text-base md:text-lg font-medium">Countries Reached</div>
-                {!statsLoaded && (
-                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
-                )}
               </div>
               <div className="group">
                 <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
@@ -236,9 +230,6 @@ const PortfolioCover = () => {
                   {formatNumber(animatedStats.companies, 'companies')}
                 </div>
                 <div className="text-gray-300 text-base md:text-lg font-medium">Companies Reached</div>
-                {!statsLoaded && (
-                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
-                )}
               </div>
               <div className="group">
                 <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 transition-all duration-300 drop-shadow-lg ${
@@ -247,9 +238,6 @@ const PortfolioCover = () => {
                   {formatNumber(animatedStats.events, 'events')}
                 </div>
                 <div className="text-gray-300 text-base md:text-lg font-medium">Global Events Showcased</div>
-                {!statsLoaded && (
-                  <div className="mt-2 h-1 bg-blue-400 rounded animate-pulse"></div>
-                )}
               </div>
             </div>
           </div>
