@@ -53,7 +53,7 @@ const PortfolioCover = () => {
 
   // Handle view more button
   const handleViewMore = () => {
-    navigate('/work');
+    navigate('/show-work');
   };
 
   // Handle contact navigation
