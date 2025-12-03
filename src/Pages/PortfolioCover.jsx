@@ -171,19 +171,21 @@ const PortfolioCover = () => {
             Motion Designer crafting high-impact visuals for SaaS and Tech brands worldwide.
           </p>
           
-          {/* CTA Buttons - Smaller size */}
-          <div className="flex gap-3 justify-center flex-wrap mb-12">
-            <button 
-              onClick={handleContactClick}
-              className="bg-transparent border-2 border-gray-400 text-white px-5 py-2.5 rounded-lg hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+          {/* CTA Buttons */}
+          <div className="flex gap-4 justify-center flex-wrap mb-12">
+            <a
+              href="https://calendly.com/shiwang-work/30min?month=2025-12&date=2025-12-04"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-gray-400 text-white px-7 py-3.5 rounded-lg hover:bg-white hover:text-black transition-all duration-300 text-base font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Work With Me
-            </button>
+              Get in Touch
+            </a>
             <a
               href="https://drive.google.com/file/d/1LvNlOat0dH1Nbq727NXZ0V7oIC0Dr9eE/view"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black px-5 py-2.5 rounded-lg hover:bg-gray-200 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="bg-white text-black px-7 py-3.5 rounded-lg hover:bg-gray-200 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Case Study
             </a>
@@ -191,14 +193,14 @@ const PortfolioCover = () => {
               href="https://www.linkedin.com/in/shiwangn5/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
+              className="bg-blue-600 text-white px-7 py-3.5 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
             >
-              <Linkedin size={16} />
+              <Linkedin size={18} />
               View LinkedIn
             </a>
             <button 
               onClick={() => navigate('/')}
-              className="bg-transparent border-2 border-blue-400 text-blue-400 px-5 py-2.5 rounded-lg hover:bg-blue-400 hover:text-white transition-all duration-300 font-medium text-sm shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="bg-transparent border-2 border-blue-400 text-blue-400 px-7 py-3.5 rounded-lg hover:bg-blue-400 hover:text-white transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               View Website
             </button>
