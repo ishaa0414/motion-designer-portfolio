@@ -20,7 +20,7 @@ const PortfolioCover = () => {
   const navigate = useNavigate();
 
   // Filter and order videos based on specified IDs: 11,10,1,3,4,5,9,12,8
-  const selectedVideoIds = [11, 10, 1, 3, 4, 5, 9, 12, 8];
+  const selectedVideoIds = [13, 14,11,10, 1, 3,9,15,12,15,4,5];
   
   // Create a map for quick lookup
   const videoMap = videos.reduce((map, video) => {
